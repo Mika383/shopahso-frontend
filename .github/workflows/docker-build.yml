@@ -37,6 +37,8 @@ jobs:
           push: true
           build-args: |
             NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL || 'https://api.ahso.vn' }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             ghcr.io/${{ steps.vars.outputs.owner_lc }}/shopahso_frontend:latest
             ghcr.io/${{ steps.vars.outputs.owner_lc }}/shopahso_frontend:${{ github.sha }}
